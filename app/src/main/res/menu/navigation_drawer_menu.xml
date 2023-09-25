@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/about"
+        android:title="About"
+        android:icon="@drawable/baseline_info_24">
+    </item>
+    <item android:id="@+id/send_feedback"
+        android:title="Send Feedback"
+        android:icon="@drawable/baseline_feedback_24">
+    </item>
+    <item android:id="@+id/notification"
+        android:title="Notification"
+        android:icon="@drawable/baseline_notifications_24">
+    </item>
+    <item android:id="@+id/send_query"
+        android:title="Send Query"
+        android:icon="@drawable/baseline_question_answer_24">
+    </item>
+    <item android:id="@+id/privacy_policy"
+        android:title="Privacy Policy"
+        android:icon="@drawable/baseline_privacy_tip_24">
+    </item>
+    <item android:id="@+id/logout"
+        android:title="Log Out"
+        android:icon="@drawable/baseline_power_settings_new_24">
+    </item>
+</menu>
