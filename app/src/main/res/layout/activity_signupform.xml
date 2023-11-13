@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Signupform">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/llback"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:background="@drawable/signupthree">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_back"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/back_button"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/btn_back"
+                android:src="@drawable/toolmenu"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/btn_back">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="#25356F"
+                    android:textSize="25sp"
+                    android:text="Please Enter Your"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="#25356F"
+                    android:textSize="25sp"
+                    android:text="@string/mobile_number"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="#25356F"
+                    android:layout_marginTop="20dp"
+                    android:textSize="16sp"
+                    android:text="Start your journey!"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="-20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/llback">
+        <EditText
+            android:id="@+id/et_mobnumber"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="sans-serif"
+            android:inputType="number"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:background="@drawable/custom_edit_background_signup"
+            android:drawablePadding="12dp"
+            android:hint="Enter your mobile number"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+        <EditText
+            android:id="@+id/et_usrname"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:maxLength="40"
+            android:maxLines="1"
+            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:background="@drawable/custom_edit_background_signup"
+            android:drawablePadding="12dp"
+            android:fontFamily="sans-serif"
+            android:hint="Enter your name"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+        <EditText
+            android:id="@+id/et_usrpassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="sans-serif"
+            android:maxLines="1"
+            android:inputType="textPassword"
+            android:layout_marginTop="30dp"
+            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#%^"
+            android:background="@drawable/custom_edit_background_signup"
+            android:drawablePadding="12dp"
+            android:maxLength="12"
+            android:hint="Enter password here"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+        <EditText
+            android:id="@+id/et_usrconfirmpassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:maxLines="1"
+            android:inputType="textPassword"
+            android:maxLength="12"
+            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#%^"
+            android:background="@drawable/custom_edit_background_signup"
+            android:drawablePadding="12dp"
+            android:fontFamily="sans-serif"
+            android:hint="Confirm password"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/ll_signup"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#25356F"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:text="@string/i_agree_to_terms_conditions"/>
+            </LinearLayout>
+        </LinearLayout>
+        <androidx.constraintlayout.utils.widget.ImageFilterButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_continue"
+            android:src="@drawable/btn_continuesecond"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+</RelativeLayout>

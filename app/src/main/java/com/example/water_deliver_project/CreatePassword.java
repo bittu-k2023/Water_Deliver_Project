@@ -47,9 +47,9 @@ public class CreatePassword extends AppCompatActivity {
             Toast.makeText(this, "Create Password Field IS Empty", Toast.LENGTH_SHORT).show();
         }
         else {
-            if(createpassword.length()!=6)
+            if(createpassword.length()<6 || createpassword.length()>15)
             {
-                Toast.makeText(this, "Passowrd Must Be Six Digit Numeric Value", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Password must be 6 to 15 character only", Toast.LENGTH_SHORT).show();
             }
             else{
                 if(!createpassword.equals(confirmpassword))

@@ -34,6 +34,7 @@ public class SubmitOTP extends AppCompatActivity {
     String num;
     String usr_otp;
     String vid;
+    String User;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +48,18 @@ public class SubmitOTP extends AppCompatActivity {
         tvShownumber = (TextView) findViewById(R.id.tv_shownumber);
         resendotp = (ImageView) findViewById(R.id.resendotp);
         resendotp.setVisibility(View.INVISIBLE);
-
         tvotptimer = (TextView) findViewById(R.id.tvotptimer);
-
         Intent intent=getIntent();
         num=intent.getStringExtra("mob");
         tvShownumber.setText("+91 "+num);
+        Intent intent1=getIntent();
+        if(intent1.getStringExtra("newusr")!=null)
+        {
+            User=intent1.getStringExtra("newusr");
+        }
+        else {
+            User="olduser";
+        }
         imgback();
         timecountval();
         submitmyotp();
@@ -62,7 +69,7 @@ public class SubmitOTP extends AppCompatActivity {
         imgSubmitmyotp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                usr_otp=etSubmitOTP.getText().toString();
+                usr_otp=etSubmitOTP.getText().toString().trim();
                 vid=getIntent().getStringExtra("verificationid");
 
                 if(usr_otp.equals(""))
@@ -90,9 +97,17 @@ public class SubmitOTP extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
-                    Intent intent=new Intent(getApplicationContext(),CreatePassword.class);
-                    intent.putExtra("mobnum",num);
-                    startActivity(intent);
+                    if(User.equals("newuser"))
+                    {
+                        Intent intent1=new Intent(SubmitOTP.this, HomeTwo.class);
+                        startActivity(intent1);
+                    }
+                    else {
+                        Intent intent=new Intent(getApplicationContext(),CreatePassword.class);
+                        intent.putExtra("mobnum",num);
+                        startActivity(intent);
+                    }
+
                 }else {
                     Toast.makeText(SubmitOTP.this, "resend_otp", Toast.LENGTH_SHORT).show();
                 }
@@ -152,7 +167,7 @@ public class SubmitOTP extends AppCompatActivity {
         imgBackbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getApplicationContext(),sendotp.class);
+                Intent intent=new Intent(getApplicationContext(),WLogin.class);
                 startActivity(intent);
             }
         });

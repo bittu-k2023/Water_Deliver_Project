@@ -2,4 +2,6 @@
     <string name="app_name">Water App</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="mobile_number"><u>Mobile Number</u></string>
+    <string name="i_agree_to_terms_conditions">I agree to terms &amp; conditions</string>
 </resources>

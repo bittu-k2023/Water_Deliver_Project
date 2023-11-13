@@ -18,12 +18,15 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class sendotp extends AppCompatActivity {
 
     private ImageView imgBackSotp;
     private EditText etSendotp;
     private ImageView btnSendotpp;
+    String mobnum;
 
 
     @Override
@@ -41,20 +44,28 @@ public class sendotp extends AppCompatActivity {
         btnSendotpp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String num=etSendotp.getText().toString().trim();
-                if(num.equals(""))
+                mobnum=etSendotp.getText().toString().trim();
+                if(mobnum.equals(""))
                 {
-                    Toast.makeText(sendotp.this, "Phone Number can't be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(sendotp.this, "Mobile Number is Empty", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    if(num.length()<10)
+                    if(!isvalidmobile())
                     {
-                        Toast.makeText(sendotp.this, "Enter correct phone number", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(sendotp.this, "Invalid Mobile Number", Toast.LENGTH_SHORT).show();
                     }
-                    sendverification(num);
+                    else {
+                        sendverification(mobnum);
+                    }
                 }
             }
         });
+    }
+
+    private boolean isvalidmobile() {
+        Pattern pattern=Pattern.compile("(0/91)?[6-9][0-9]{9}");
+        Matcher match=pattern.matcher(mobnum);
+        return (match.find() && match.group().equals(mobnum));
     }
 
     private void sendverification(String num) {
